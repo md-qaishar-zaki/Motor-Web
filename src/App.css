@@ -32,7 +32,27 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+
+.button {
+  display: flex;
+  margin: 5px auto;
+  background: transparent;
+  box-shadow: 0 0 0 2px #fff;
+  clear: both;
+  color: #646464;
+  border: 2px solid #646464;
+  padding: 6px 30px;
+  border-radius: 40px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.button:hover {
+  border-color: #ee1c25;
+  color: #ee1c25;
 }
