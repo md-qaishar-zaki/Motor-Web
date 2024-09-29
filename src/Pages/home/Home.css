@@ -43,6 +43,7 @@
 .categories__text h4 {
 	color: #111111;
 	font-weight: 700;
+	display: none;
 }
 
 .categories__text p {
