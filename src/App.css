@@ -40,7 +40,7 @@
 
 .button {
   display: flex;
-  margin: 5px auto;
+  margin: 25px auto 0px auto;
   background: transparent;
   box-shadow: 0 0 0 2px #fff;
   clear: both;
@@ -55,4 +55,13 @@
 .button:hover {
   border-color: #ee1c25;
   color: #ee1c25;
+}
+
+button i {
+  font-size: 28px;
+  margin: -7px;
+}
+
+button i:hover {
+  color: #5b5b5b !important;
 }
