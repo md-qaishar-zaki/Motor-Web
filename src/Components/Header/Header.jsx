@@ -32,7 +32,8 @@ export default function Header() {
                         </div>
                         <div className="header__logo ml-4">
                             <a href="./index.html">
-                                <img src="img/logo.png" alt="" />
+                                {/* <img src="img/logo.png" alt="" /> */}
+                                <h6>Logo</h6>
                             </a>
                         </div>
                     </div>

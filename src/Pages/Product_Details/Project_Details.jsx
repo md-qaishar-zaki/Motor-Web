@@ -1,75 +1,74 @@
-import React from 'react'
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import motor1 from '../../Img/motor1.jpeg';
+import motor2 from '../../Img/motor2.jpeg';
+import motor3 from '../../Img/motor3.jpeg';
+import motor4 from '../../Img/motor4.jpeg';
 
 export default function Project_Details() {
+    const { id } = useParams();  // Get product ID from URL
+
+    const products = [
+        { id: 1, ProductTitle: 'Electric Motor 2/3/5 HP Standard IS...', ImgName: motor1, Price: `5,499`, stars: 2 },
+        { id: 2, ProductTitle: 'VEVOR 3 Phase Electric Mo...', ImgName: motor2, Price: `6,299`, stars: 4 },
+        { id: 3, ProductTitle: 'Single Phase Electric Motor ...', ImgName: motor3, Price: `9,999`, stars: 5 },
+        { id: 4, ProductTitle: 'AC motor', ImgName: motor4, Price: `10,199`, stars: 3 },
+        { id: 5, ProductTitle: 'Electric Motor 2/3/5 HP Standard IS...', ImgName: motor1, Price: `5,499`, stars: 2 },
+        { id: 6, ProductTitle: 'VEVOR 3 Phase Electric Mo...', ImgName: motor2, Price: `6,299`, stars: 4 },
+        { id: 7, ProductTitle: 'Single Phase Electric Motor ...', ImgName: motor3, Price: `9,999`, stars: 5 },
+        { id: 8, ProductTitle: 'AC motor', ImgName: motor4, Price: `10,199`, stars: 3 },
+    ];
+
+    const product = products.find((prod) => prod.id === parseInt(id));
+
+    if (!product) {
+        return <div>Product not found!</div>;
+    }
+
     return (
         <div>
             <section className="py-5">
                 <div className="container mx-auto">
-                    <div className="flex flex-wrap -mx-5">
+                    <div className="flex flex-wrap mx-5">
                         <aside className="lg:w-1/2 px-5">
                             <div className="border rounded-4 mb-3 flex justify-center">
                                 <a data-fslightbox="mygalley" className="rounded-4" target="_blank" data-type="image"
-                                    href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp">
+                                    href={product.ImgName}>
                                     <img className="max-w-full max-h-screen mx-auto rounded-4"
-                                        src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp" />
+                                        src={product.ImgName} alt={product.ProductTitle} />
                                 </a>
                             </div>
                             <div className="flex justify-center mb-3">
-                                <a data-fslightbox="mygalley" className="border mx-1 rounded-2" target="_blank" data-type="image"
-                                    href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big1.webp">
-                                    <img width="60" height="60" className="rounded-2"
-                                        src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big1.webp" />
-                                </a>
-                                <a data-fslightbox="mygalley" className="border mx-1 rounded-2" target="_blank" data-type="image"
-                                    href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big2.webp">
-                                    <img width="60" height="60" className="rounded-2"
-                                        src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big2.webp" />
-                                </a>
-                                <a data-fslightbox="mygalley" className="border mx-1 rounded-2" target="_blank" data-type="image"
-                                    href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big3.webp">
-                                    <img width="60" height="60" className="rounded-2"
-                                        src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big3.webp" />
-                                </a>
-                                <a data-fslightbox="mygalley" className="border mx-1 rounded-2" target="_blank" data-type="image"
-                                    href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big4.webp">
-                                    <img width="60" height="60" className="rounded-2"
-                                        src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big4.webp" />
-                                </a>
-                                <a data-fslightbox="mygalley" className="border mx-1 rounded-2" target="_blank" data-type="image"
-                                    href="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp">
-                                    <img width="60" height="60" className="rounded-2"
-                                        src="https://mdbcdn.b-cdn.net/img/bootstrap-ecommerce/items/detail1/big.webp" />
-                                </a>
+                                <img width="60" height="60" className="rounded-2"
+                                    src={product.ImgName} alt={product.ProductTitle} />
+                                <img width="60" height="60" className="rounded-2"
+                                    src={product.ImgName} alt={product.ProductTitle} />
+                                <img width="60" height="60" className="rounded-2"
+                                    src={product.ImgName} alt={product.ProductTitle} />
                             </div>
                         </aside>
                         <main className="lg:w-1/2 px-5">
                             <div className="ps-lg-3">
                                 <h4 className="title text-gray-800">
-                                    Quality Men's Hoodie for Winter, Men's Fashion <br />
-                                    Casual Hoodie
+                                    {product.ProductTitle}
                                 </h4>
                                 <div className="flex flex-row my-3">
                                     <div className="text-yellow-500 mb-1 mr-2">
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fa fa-star"></i>
-                                        <i className="fas fa-star-half-alt"></i>
-                                        <span className="ml-1">4.5</span>
+                                        {[...Array(product.stars)].map((_, index) => (
+                                            <i key={index} className="fa fa-star text-yellow-400"></i>
+                                        ))}
+                                        <span className="ml-1">{product.stars}</span>
                                     </div>
                                     <span className="text-gray-500"><i className="fas fa-shopping-basket fa-sm mx-1"></i>154 orders</span>
                                     <span className="text-green-500 ml-2">In stock</span>
                                 </div>
 
                                 <div className="mb-3">
-                                    <span className="text-lg font-bold">$75.00</span>
-                                    <span className="text-gray-500">/per box</span>
+                                    <span className="text-lg font-bold">₹{product.Price}</span>
                                 </div>
 
                                 <p>
-                                    Modern look and quality demo item is a streetwear-inspired collection that continues to break away from the
-                                    conventions of mainstream fashion. Made in Italy, these black and brown clothing low-top shirts for
-                                    men.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil eligendi aliquam nostrum temporibus soluta vitae labore inventore aspernatur, quos nam.
                                 </p>
 
                                 <div className="grid grid-cols-3 mb-4">

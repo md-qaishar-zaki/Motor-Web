@@ -5,8 +5,7 @@ import img2 from '../../Img/2.jpg'
 import img3 from '../../Img/3.jpg'
 import img4 from '../../Img/4.jpg'
 import img5 from '../../Img/5.jpg'
-import Products from '../Trend_Spad/Products/Products'
-import Project_Details from '../Product_Details/Project_Details'
+import Products from '../Trend_Spad/Products/Products' 
 
 
 export default function Home() {
@@ -130,7 +129,6 @@ export default function Home() {
             </section>
             <Products SectionTitle="Today's Deal" />
             <Products SectionTitle="Best Seller" />
-            {/* <Project_Details/> */}
         </>
     )
 }

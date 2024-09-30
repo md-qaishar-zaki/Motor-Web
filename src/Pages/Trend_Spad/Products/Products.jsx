@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 import Trend_Spad from '../../Trend_Spad/Trend_Spad.jsx'
 import motor1 from '../../../Img/motor1.jpeg'
 import motor2 from '../../../Img/motor2.jpeg'
@@ -6,19 +7,22 @@ import motor3 from '../../../Img/motor3.jpeg'
 import motor4 from '../../../Img/motor4.jpeg'
 import Button from '../../../Components/Button.jsx'
 
-export default function Products({SectionTitle}) {
+export default function Products({ SectionTitle }) {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const navigate = useNavigate();
 
     const products = [
-        { ProductTitle: 'Electric Motor 2/3/5 HP Standard IS...', ImgName: motor1, Price: `5,499`, stars: 2 },
-        { ProductTitle: 'VEVOR 3 Phase Electric Mo...', ImgName: motor2, Price: `6,299`, stars: 4 },
-        { ProductTitle: 'Single Phase Electric Motor ...', ImgName: motor3, Price: `9,999`, stars: 5 },
-        { ProductTitle: 'AC motor', ImgName: motor4, Price: `10,199`, stars: 3 },
-        { ProductTitle: 'Electric Motor 2/3/5 HP Standard IS...', ImgName: motor1, Price: `5,499`, stars: 2 },
-        { ProductTitle: 'VEVOR 3 Phase Electric Mo...', ImgName: motor2, Price: `6,299`, stars: 4 },
-        { ProductTitle: 'Single Phase Electric Motor ...', ImgName: motor3, Price: `9,999`, stars: 5 },
-        { ProductTitle: 'AC motor', ImgName: motor4, Price: `10,199`, stars: 3 },
+        { id: 1, ProductTitle: 'Electric Motor 2/3/5 HP Standard IS...', ImgName: motor1, Price: `5,499`, stars: 2 },
+        { id: 2, ProductTitle: 'VEVOR 3 Phase Electric Mo...', ImgName: motor2, Price: `6,299`, stars: 4 },
+        { id: 3, ProductTitle: 'Single Phase Electric Motor ...', ImgName: motor3, Price: `9,999`, stars: 5 },
+        { id: 4, ProductTitle: 'AC motor', ImgName: motor4, Price: `10,199`, stars: 3 },
+        { id: 5, ProductTitle: 'Electric Motor 2/3/5 HP Standard IS...', ImgName: motor1, Price: `5,499`, stars: 2 },
+        { id: 6, ProductTitle: 'VEVOR 3 Phase Electric Mo...', ImgName: motor2, Price: `6,299`, stars: 4 },
+        { id: 7, ProductTitle: 'Single Phase Electric Motor ...', ImgName: motor3, Price: `9,999`, stars: 5 },
+        { id: 8, ProductTitle: 'AC motor', ImgName: motor4, Price: `10,199`, stars: 3 },
     ];
+
+
     const visibleProducts = 4;
     useEffect(() => {
         const interval = setInterval(() => {
@@ -39,6 +43,11 @@ export default function Products({SectionTitle}) {
             prevIndex === 0 ? products.length - visibleProducts : prevIndex - 1
         );
     };
+
+    const handleProductClick = (id) => {
+        navigate(`/product/${id}`);  // Route to product details page
+    };
+
     return (
         <div className="container mx-auto px-4">
             <div className="mt-5">
@@ -54,8 +63,8 @@ export default function Products({SectionTitle}) {
                         className="flex transition-transform duration-500 ease-in-out"
                         style={{ transform: `translateX(-${currentIndex * (100 / visibleProducts)}%)` }}
                     >
-                        {products.map((product, index) => (
-                            <div key={index} className="w-1/4 flex-shrink-0">
+                        {products.map((product) => (
+                            <div key={product.id} className="w-1/4 flex-shrink-0" onClick={() => handleProductClick(product.id)}>
                                 <Trend_Spad
                                     ProductTitle={product.ProductTitle}
                                     ImgName={product.ImgName}
