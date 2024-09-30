@@ -130,7 +130,7 @@ export default function Home() {
             </section>
             <Products SectionTitle="Today's Deal" />
             <Products SectionTitle="Best Seller" />
-            <Project_Details/>
+            {/* <Project_Details/> */}
         </>
     )
 }
