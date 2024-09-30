@@ -6,6 +6,7 @@ import motor3 from '../../Img/motor3.jpeg';
 import motor4 from '../../Img/motor4.jpeg';
 
 export default function Project_Details() {
+    window.scrollTo(0, 0);
     const { id } = useParams();  // Get product ID from URL
 
     const products = [
@@ -24,6 +25,8 @@ export default function Project_Details() {
     if (!product) {
         return <div>Product not found!</div>;
     }
+
+
 
     return (
         <div>
@@ -76,13 +79,13 @@ export default function Project_Details() {
                                     <dd className="col-span-2">Regular</dd>
 
                                     <dt className="font-semibold">Color</dt>
-                                    <dd className="col-span-2">Brown</dd>
+                                    <dd className="col-span-2">Black</dd>
 
                                     <dt className="font-semibold">Material</dt>
-                                    <dd className="col-span-2">Cotton, Jeans</dd>
+                                    <dd className="col-span-2">Copper, Coil</dd>
 
                                     <dt className="font-semibold">Brand</dt>
-                                    <dd className="col-span-2">Reebook</dd>
+                                    <dd className="col-span-2">Crompton</dd>
                                 </div>
 
                                 <hr className="my-4" />
