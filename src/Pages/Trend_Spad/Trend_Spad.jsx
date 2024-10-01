@@ -15,10 +15,10 @@ export default function Trend_Spad({ ImgName, ProductTitle, Price, stars }) {
                 </div>
                 <div className="flex items-center">
                     <div className="product__price text-lg font-bold w-full">₹ {Price}</div>
-                    <ul class="product__hover">
-                        <li><a href="img/product/product-2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                    <ul className="product__hover">
+                        <li><a href="img/product/product-2.jpg" className="image-popup"><span className="arrow_expand"></span></a></li>
+                        <li><a href="/"><span className="icon_heart_alt"></span></a></li>
+                        <li><a href="/"><span className="icon_bag_alt"></span></a></li>
                     </ul>
                 </div>
             </div>

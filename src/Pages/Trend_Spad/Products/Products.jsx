@@ -78,13 +78,13 @@ export default function Products({ SectionTitle }) {
                         onClick={handlePrev}
                         className="absolute top-1/2 left-2 transform -translate-y-1/2 text-dark"
                     >
-                        <i class="bi-caret-left-square"></i>
+                        <i className="bi-caret-left-square"></i>
                     </button>
                     <button
                         onClick={handleNext}
                         className="absolute top-1/2 right-2 transform -translate-y-1/2 text-dark"
                     >
-                        <i class="bi-caret-right-square"></i>
+                        <i className="bi-caret-right-square"></i>
                     </button>
                 </div>
                 <div className="text-center">
