@@ -65,3 +65,7 @@ button i {
 button i:hover {
   color: #5b5b5b !important;
 }
+
+#share i {
+  color: #eab308;
+}

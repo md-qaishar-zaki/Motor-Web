@@ -33,13 +33,13 @@ export default function Project_Details() {
                 <div className="container mx-auto px-4">
                     <div className="flex flex-wrap -mx-4">
                         <aside className="w-full lg:w-1/2 px-4 mb-4 lg:mb-0">
-                            <div className="border rounded-lg mb-4 flex justify-center">
+                            <div className="border rounded-lg mb-4 flex justify-center ProductIMG">
                                 <a data-fslightbox="mygallery" href={product.ImgName} target="_blank" rel="noreferrer">
                                     <img className="max-w-full max-h-screen rounded-lg"
                                         src={product.ImgName} alt={product.ProductTitle} />
                                 </a>
                             </div>
-                            <div className="flex justify-center space-x-3">
+                            <div className="flex justify-center space-x-3 ProductsShortIMG">
                                 <img width="60" height="60" className="rounded-lg"
                                     src={product.ImgName} alt={product.ProductTitle} />
                                 <img width="60" height="60" className="rounded-lg"
@@ -94,7 +94,7 @@ export default function Project_Details() {
                                 <div className="grid grid-cols-2 gap-4 mb-4">
                                     <div className='w-24'>
                                         <label className="block mb-2 text-gray-600">Quantity</label>
-                                        <div className="flex items-center border border-gray-300 rounded-md">
+                                        <div className="flex items-center border bg-white border-gray-300 rounded-md">
                                             <button className="px-3 py-2 text-gray-600"><i className="fa fa-minus"></i></button>
                                             <input type="text" className="w-12 text-center border-l border-r border-gray-300" value="4" readOnly />
                                             <button className="px-3 py-2 text-gray-600"><i className="fa fa-plus"></i></button>
