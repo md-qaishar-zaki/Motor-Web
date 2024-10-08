@@ -6,6 +6,7 @@ import motor2 from '../../Img/motor2.jpeg';
 import motor3 from '../../Img/motor3.jpeg';
 import motor4 from '../../Img/motor4.jpeg';
 import Trend_Spad from '../Trend_Spad/Trend_Spad';
+import RatingsReviews from '../Ratings_&_Reviews/Ratings_&_Reviews';
 
 
 export default function Project_Details() {
@@ -222,6 +223,7 @@ export default function Project_Details() {
                             </div>
                         </div>
                     </div>
+                    <RatingsReviews/>
                 </div>
             </section>
         </div>
