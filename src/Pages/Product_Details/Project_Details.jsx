@@ -5,6 +5,8 @@ import motor1 from '../../Img/motor1.jpeg';
 import motor2 from '../../Img/motor2.jpeg';
 import motor3 from '../../Img/motor3.jpeg';
 import motor4 from '../../Img/motor4.jpeg';
+import Trend_Spad from '../Trend_Spad/Trend_Spad';
+
 
 export default function Project_Details() {
     window.scrollTo(0, 0);
@@ -54,9 +56,11 @@ export default function Project_Details() {
                                     {product.ProductTitle}
                                 </h4>
                                 <div className="flex items-center space-x-3 mb-3">
-                                    <div className="flex items-center">
+                                    <div className="flex items-center stars">
                                         {[...Array(product.stars)].map((_, index) => (
-                                            <i key={index} className="fa fa-star text-yellow-400 px-1"></i>
+                                            <svg key={index} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                                                <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clipRule="evenodd" />
+                                            </svg>
                                         ))}
                                         <span className="ml-1 text-gray-700">{product.stars}</span>
                                     </div>
@@ -163,6 +167,60 @@ export default function Project_Details() {
 
                             </div>
                         </main>
+                    </div>
+                    <div className="flex flex-wrap product-desc-tab">
+                        <div className="w-full md:w-1/3">
+                            <div className="seller-top-products-box bg-white sidebar-box mx-3 p-4 mb-3">
+                                <h6>Top Selling Products From This Seller</h6>
+                                <Trend_Spad ImgName={motor3} ProductTitle={'Electric Motor 2/3/5 HP Standard IS...'} Price={`5, 499`} stars={2} />
+                            </div>
+                        </div>
+                        <div className="w-full md:w-2/3">
+                            <div className=" bg-white">
+                                <div className="tabs tabs--style-2">
+                                    <ul className="flex justify-center sticky p-3 border-b-2 bg-white">
+                                        <li className="nav-item">
+                                            <a href="#tab_default_1" className="nav-link text-uppercase font-semibold active show">Description</a>
+                                        </li>
+                                    </ul>
+
+                                    <div className="tab-content pt-0">
+                                        <div className="tab-pane active show" id="tab_default_1">
+                                            <div className="py-2 px-4">
+                                                <div className="flex flex-wrap">
+                                                    <div className="w-full">
+                                                        <div className="overflow-hidden aiz-product-description">
+                                                            <div className="product_content">
+                                                                <p><b><span className="text-sm">Bio Medical Waste Bin Trolley Set of 3 with Frame 32L Capacity</span></b></p>
+                                                                <p><b><span className="text-sm">Specification:</span></b></p>
+                                                                <ul className="list-disc pl-5">
+                                                                    <li><span className="text-sm">Product Type: Bio Medical Waste Bin</span></li>
+                                                                    <li><span className="text-sm">Body Material: Polypropylene</span></li>
+                                                                    <li><span className="text-sm">Trolley: Available</span></li>
+                                                                    <li><span className="text-sm">Trolley Material: Stainless Steel</span></li>
+                                                                    <li><span className="text-sm">Volume: 32L per bin</span></li>
+                                                                    <li><span className="text-sm">Dimension (L x W x H): 440 X 300 X 440 mm per bin</span></li>
+                                                                    <li><span className="text-sm">Weight: 60 Kg (Approx.)</span></li>
+                                                                </ul>
+                                                                <p><b><span className="text-sm">Features:</span></b></p>
+                                                                <ul className="list-disc pl-5">
+                                                                    <li><strong><span className="text-sm">Three 32-Liter Bins:</span></strong> Ideal for sorting and collecting different types of bio-medical waste.</li>
+                                                                    <li><strong><span className="text-sm">Durable Construction:</span></strong> Made from high-quality, easy-to-clean materials that resist odors and stains.</li>
+                                                                    <li><strong><span className="text-sm">Secure Frame:</span></strong> Provides stability and makes moving the bins hassle-free, ensuring safe and efficient waste management.</li>
+                                                                </ul>
+                                                                <p><b><span className="text-sm">Description:</span></b></p>
+                                                                <p><span className="text-sm">Efficiently manage bio-medical waste with the Bio Medical Waste Bin Trolley Set of 3 with Frame. Each bin has a 32-liter capacity, offering ample space for safe and hygienic waste disposal. The set includes a sturdy frame that supports the bins, making transportation and handling easy and secure. Perfect for hospitals, clinics, and other medical facilities, this trolley set streamlines waste management while enhancing safety and convenience.</span></p>
+                                                                <div><br /></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

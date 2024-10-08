@@ -51,14 +51,14 @@
 
 .offcanvas__menu ul li a {
 	font-size: 14px;
-    text-transform: uppercase;
-    color: #000;
-    text-decoration: none;
-    display: block;
-    font-weight: 400;
-    padding: 8px 17px;
-    background: #e8e8e8;
-    margin: 6px;
+	text-transform: uppercase;
+	color: #000;
+	text-decoration: none;
+	display: block;
+	font-weight: 400;
+	padding: 8px 17px;
+	background: #e8e8e8;
+	margin: 6px;
 }
 
 /* Responsive Media Queries */
@@ -67,4 +67,28 @@
 		width: 70%;
 		/* Full screen on small devices */
 	}
+}
+
+.InputSearch input {
+	width: 350px;
+	height: 40px;
+	border-radius: 50px;
+	border: 1px solid #efdba8;
+	padding: 15px;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	color: #4a4a4a;
+}
+
+.InputSearch {
+	position: relative;
+}
+
+.InputSearch svg {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	cursor: pointer;
 }

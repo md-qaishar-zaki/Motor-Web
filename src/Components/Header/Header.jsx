@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
+
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const sidebarRef = useRef(null);
@@ -25,7 +26,7 @@ export default function Header() {
     return (
         <header className="header px-9">
             <div className="container-fluid">
-                <div className="row flex flex-wrap"> 
+                <div className="row flex flex-wrap">
                     <div className="w-full lg:w-1/2 flex items-center">
                         <div className="canvas__open" onClick={toggleMenu}>
                             <i className="fa fa-bars"></i>
@@ -37,7 +38,13 @@ export default function Header() {
                             </a>
                         </div>
                     </div>
-                    <div className="w-full lg:w-1/2 flex justify-end items-center">
+                    <div className="w-full lg:w-1/2 flex justify-around items-center">
+                        <div className="InputSearch">
+                            <input type="text" name="" id="" placeholder='Search Products' />
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                            </svg>
+                        </div>
                         <div className="header__right flex space-x-4 items-center">
                             <div className="header__right__auth space-x-4">
                                 <a href="#">Login</a>
