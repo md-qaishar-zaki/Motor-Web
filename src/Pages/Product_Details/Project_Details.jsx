@@ -7,6 +7,8 @@ import motor3 from '../../Img/motor3.jpeg';
 import motor4 from '../../Img/motor4.jpeg';
 import Trend_Spad from '../Trend_Spad/Trend_Spad';
 import RatingsReviews from '../Ratings_&_Reviews/Ratings_&_Reviews';
+import QNA from '../QNA/QNA';
+import RelatedProducts from '../RelatedProducts/RelatedProducts';
 
 
 export default function Project_Details() {
@@ -221,9 +223,11 @@ export default function Project_Details() {
                                     </div>
                                 </div>
                             </div>
+                            <RatingsReviews />
                         </div>
                     </div>
-                    <RatingsReviews/>
+                    <QNA />
+                    <RelatedProducts />
                 </div>
             </section>
         </div>
