@@ -69,11 +69,27 @@
 	}
 }
 
-.InputSearch input {
-	width: 350px;
+.InputSearch {
+	width: 370px;
 	height: 40px;
 	border-radius: 50px;
+	background: #fff;
 	border: 1px solid #efdba8;
+	display: flex;
+	overflow: hidden;
+	align-items: center;
+	margin-right: 10px;
+}
+
+.InputSearch select {
+	border: 1px solid #efdba8;
+	border-radius: 4px;
+	height: 30px;
+	font-size: 12px;
+}
+
+.InputSearch input {
+	background: none;
 	padding: 15px;
 	font-family: Poppins;
 	font-style: normal;

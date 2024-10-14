@@ -83,7 +83,11 @@ ol {
 -----------------------*/
 
 .section-title {
-    margin-bottom: 25px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .section-title h4 {

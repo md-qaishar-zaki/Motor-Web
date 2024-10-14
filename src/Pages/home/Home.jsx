@@ -127,8 +127,13 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            <Products SectionTitle="Today's Deal" />
-            <Products SectionTitle="Best Seller" />
+            <Products SectionTitle="Best Sellings" />
+            <Products SectionTitle="Pump and motor" />
+            <Products SectionTitle="Farm machineryView All" />
+            <Products SectionTitle="Workshop tools" />
+            <Products SectionTitle="Home improvement" />
+            <Products SectionTitle="Packaging solution" />
+            <Products SectionTitle="Food processing" />
         </>
     )
 }

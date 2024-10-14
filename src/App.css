@@ -40,7 +40,6 @@
 
 .button {
   display: flex;
-  margin: 25px auto 0px auto;
   background: transparent;
   box-shadow: 0 0 0 2px #fff;
   clear: both;
@@ -68,4 +67,10 @@ button i:hover {
 
 #share i {
   color: #eab308;
+}
+
+.productList {
+  background: #fff6df;
+  padding: 25px 30px;
+  margin-bottom: 30px;
 }

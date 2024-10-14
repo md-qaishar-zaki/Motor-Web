@@ -49,47 +49,41 @@ export default function Products({ SectionTitle }) {
     };
 
     return (
-        <div className="container mx-auto px-4">
-            <div className="mt-5">
-                <div className="flex w-full justify-between px-3">
-                    <div className="trend__content">
-                        <div className="section-title">
-                            <h4 className="text-xl font-bold">{SectionTitle}</h4>
-                        </div>
-                    </div>
-                </div>
-                <div className="relative container mx-auto overflow-hidden">
-                    <div
-                        className="flex transition-transform duration-500 ease-in-out"
-                        style={{ transform: `translateX(-${currentIndex * (100 / visibleProducts)}%)` }}
-                    >
-                        {products.map((product) => (
-                            <div key={product.id} className="w-1/4 flex-shrink-0" onClick={() => handleProductClick(product.id)}>
-                                <Trend_Spad
-                                    ProductTitle={product.ProductTitle}
-                                    ImgName={product.ImgName}
-                                    Price={product.Price}
-                                    stars={product.stars}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                    <button
-                        onClick={handlePrev}
-                        className="absolute top-1/2 left-2 transform -translate-y-1/2 text-dark"
-                    >
-                        <i className="bi-caret-left-square"></i>
-                    </button>
-                    <button
-                        onClick={handleNext}
-                        className="absolute top-1/2 right-2 transform -translate-y-1/2 text-dark"
-                    >
-                        <i className="bi-caret-right-square"></i>
-                    </button>
-                </div>
-                <div className="text-center">
+        <div className="container mx-auto productList">
+            <div className="trend__content">
+                <div className="section-title">
+                    <h4 className="text-xl font-bold">{SectionTitle}</h4>
                     <Button Name={'View More'} />
                 </div>
+            </div>
+            <div className="relative container mx-auto overflow-hidden">
+                <div
+                    className="flex transition-transform duration-500 ease-in-out"
+                    style={{ transform: `translateX(-${currentIndex * (100 / visibleProducts)}%)` }}
+                >
+                    {products.map((product) => (
+                        <div key={product.id} className="w-1/4 flex-shrink-0" onClick={() => handleProductClick(product.id)}>
+                            <Trend_Spad
+                                ProductTitle={product.ProductTitle}
+                                ImgName={product.ImgName}
+                                Price={product.Price}
+                                stars={product.stars}
+                            />
+                        </div>
+                    ))}
+                </div>
+                <button
+                    onClick={handlePrev}
+                    className="absolute top-1/2 left-2 transform -translate-y-1/2 text-dark"
+                >
+                    <i className="bi-caret-left-square"></i>
+                </button>
+                <button
+                    onClick={handleNext}
+                    className="absolute top-1/2 right-2 transform -translate-y-1/2 text-dark"
+                >
+                    <i className="bi-caret-right-square"></i>
+                </button>
             </div>
         </div>
     )

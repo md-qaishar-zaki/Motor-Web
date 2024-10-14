@@ -45,6 +45,28 @@
     line-height: 30px;
 }
 
+.footer span {
+    font-size: 14px;
+    color: #666666;
+}
+
+.footer label {
+    color: #9d9d9d;
+    font-size: 12px;
+}
+
+.footer img {
+    filter: brightness(0);
+}
+
+.footer-bottom img {
+    filter: unset !important;
+}
+
+.footerBox {
+    width: 150px;
+}
+
 .footer__newslatter {
     margin-bottom: 30px;
 }
@@ -163,4 +185,23 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.FooterList {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #d3d3d3
+}
+
+.FooterList svg {
+    color: #ab047b;
+    width: 30px;
+    height: 30px;
+}
+
+.FooterList div {
+    cursor: pointer;
+}
+
+.FooterList div:hover p {
+    color: #ab047b;
 }

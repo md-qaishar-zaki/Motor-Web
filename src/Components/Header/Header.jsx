@@ -26,8 +26,8 @@ export default function Header() {
     return (
         <header className="header px-9">
             <div className="container-fluid">
-                <div className="row flex flex-wrap">
-                    <div className="w-full lg:w-1/2 flex items-center">
+                <div className="row flex flex-wrap justify-between">
+                    <div className="w-3/10 lg:w-3/10 flex items-center">
                         <div className="canvas__open" onClick={toggleMenu}>
                             <i className="fa fa-bars"></i>
                         </div>
@@ -38,9 +38,15 @@ export default function Header() {
                             </a>
                         </div>
                     </div>
-                    <div className="w-full lg:w-1/2 flex justify-around items-center">
+                    <div className="w-7/10 lg:w-7/10 flex justify-around items-center">
                         <div className="InputSearch">
                             <input type="text" name="" id="" placeholder='Search Products' />
+                            <select name="All Categories" id="All Categories">
+                                <option value="">All Categories</option>
+                                <option value="">Farm machinery</option>
+                                <option value="">Pump and motor</option>
+                                <option value="">Workshop tools</option>
+                            </select>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                             </svg>
