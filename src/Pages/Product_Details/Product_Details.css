@@ -54,3 +54,12 @@
     border-radius: 5px;
     overflow: hidden;
 }
+
+.ProductIMGList img {
+    background: #fff;
+    padding: 12px;
+    border-radius: 5px;
+    width: 109px;
+    height: 100px;
+    box-shadow: 3px 3px 5px #0000004f;
+}

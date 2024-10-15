@@ -32,25 +32,28 @@ export default function Project_Details() {
         return <div>Product not found!</div>;
     }
 
+    function changeImage(src) {
+        document.getElementById('mainImage').src = src;
+    }
+
     return (
         <div>
             <section className="py-5">
                 <div className="container mx-auto px-4">
                     <div className="flex flex-wrap -mx-4">
                         <aside className="w-full lg:w-1/2 px-4 mb-4 lg:mb-0">
-                            <div className="border rounded-lg mb-4 flex justify-center ProductIMG">
-                                <a data-fslightbox="mygallery" href={product.ImgName} target="_blank" rel="noreferrer">
-                                    <img className="max-w-full max-h-screen rounded-lg"
-                                        src={product.ImgName} alt={product.ProductTitle} />
-                                </a>
+                            <div class="ProductIMG w-full h-auto rounded-lg shadow-md mb-4">
+                                <img src={product.ImgName} alt={product.ProductTitle} />
                             </div>
-                            <div className="flex justify-center space-x-3 ProductsShortIMG">
-                                <img width="60" height="60" className="rounded-lg"
-                                    src={product.ImgName} alt={product.ProductTitle} />
-                                <img width="60" height="60" className="rounded-lg"
-                                    src={product.ImgName} alt={product.ProductTitle} />
-                                <img width="60" height="60" className="rounded-lg"
-                                    src={product.ImgName} alt={product.ProductTitle} />
+                            <div class="flex gap-4 py-4 justify-center overflow-x-auto ProductIMGList">
+                                <img src={product.ImgName} alt={product.ProductTitle} class="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-100 hover:opacity-100 transition duration-300"
+                                    onclick="changeImage(this.src)" />
+                                <img src={product.ImgName} alt={product.ProductTitle} class="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
+                                    onclick="changeImage(this.src)" />
+                                <img src={product.ImgName} alt={product.ProductTitle} class="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
+                                    onclick="changeImage(this.src)" />
+                                <img src={product.ImgName} alt={product.ProductTitle} class="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
+                                    onclick="changeImage(this.src)" />
                             </div>
                         </aside>
                         <main className="w-full lg:w-1/2 px-4">
