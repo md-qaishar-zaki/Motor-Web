@@ -37,7 +37,7 @@ export default function Project_Details() {
 
     return (
         <div>
-            <section className="py-5 pt-0">
+            <section className="py-5 pt-2">
                 <div className="container mx-auto">
                     <div className="flex flex-wrap ProductDetails py-5">
                         <aside className="w-full lg:w-1/2 px-4 mb-4 lg:mb-0">

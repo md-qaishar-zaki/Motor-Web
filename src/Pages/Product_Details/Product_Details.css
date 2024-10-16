@@ -1,5 +1,8 @@
 .ProductDetails {
-    background: #fcf9f1;
+    background: #ffffff;
+    margin: 0px 10px;
+    border-radius: 5px;
+    
 }
 
 .Price {

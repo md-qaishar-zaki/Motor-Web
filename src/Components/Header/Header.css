@@ -1,11 +1,12 @@
 /* Main Header Styles */
 .header {
-	background: #ffedc2c9;
-	box-shadow: 0px 5px 10px rgba(91, 91, 91, 0.1);
-	position: sticky;
-	top: 0;
-	z-index: 10;
-	backdrop-filter: blur(20px);
+	background: #ffffffb5;
+    box-shadow: 0px 5px 10px rgba(91, 91, 91, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    backdrop-filter: blur(20px);
+    border-bottom: 2px solid #5f8b7fdb;
 }
 
 .header__logo {
@@ -74,21 +75,23 @@
 
 .InputSearch {
 	width: 370px;
-	height: 40px;
-	border-radius: 50px;
-	background: #fff;
-	border: 1px solid #efdba8;
-	display: flex;
-	overflow: hidden;
-	align-items: center;
-	margin-right: 10px;
+    height: 40px;
+    border-radius: 50px;
+    background: #ffffffc4;
+    border: 2px solid #ffffff;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    margin-right: 10px;
+    box-shadow: 1px 2px 3px #92c7b870;
 }
 
 .InputSearch select {
-	border: 1px solid #efdba8;
+	border: 2px solid #d3f4eb;
 	border-radius: 4px;
 	height: 30px;
 	font-size: 12px;
+	width: 120px;
 }
 
 .InputSearch input {
@@ -98,7 +101,7 @@
 	font-style: normal;
 	font-weight: 500;
 	font-size: 14px;
-	color: #4a4a4a;
+	color: #547d72;
 }
 
 .InputSearch {

@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Header.css';
 
-
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [categories, setCategories] = useState([]); 
     const sidebarRef = useRef(null);
 
     const toggleMenu = () => {
@@ -15,6 +15,21 @@ export default function Header() {
             setIsMenuOpen(false);
         }
     };
+
+     
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const response = await fetch('/machintools/public/api/getcategorieslist');
+                const data = await response.json();
+                setCategories(data.categories); 
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+            }
+        };
+
+        fetchCategories();
+    }, []); 
 
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
@@ -32,7 +47,7 @@ export default function Header() {
                             <i className="fa fa-bars"></i>
                         </div>
                         <div className="header__logo ml-4">
-                            <a href="./index.html">
+                            <a href="/">
                                 {/* <img src="img/logo.png" alt="" /> */}
                                 <h6>Logo</h6>
                             </a>
@@ -40,12 +55,14 @@ export default function Header() {
                     </div>
                     <div className="w-7/10 lg:w-7/10 flex justify-around items-center">
                         <div className="InputSearch">
-                            <input type="text" name="" id="" placeholder='Search Products' />
+                            <input type="text" name="" id="" placeholder="Search Products" />
                             <select name="All Categories" id="All Categories">
-                                <option value="">All Categories</option>
-                                <option value="">Farm machinery</option>
-                                <option value="">Pump and motor</option>
-                                <option value="">Workshop tools</option>
+                                <option value="">All Categories</option> 
+                                {categories.map((category) => (
+                                    <option key={category.id} value={category.slug}>
+                                        {category.title}
+                                    </option>
+                                ))}
                             </select>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -58,14 +75,14 @@ export default function Header() {
                                 <div className="flex">
                                     <div className="cart">
                                         <span>2</span>
-                                        <svg class="eUuXwBkW5W4__eatjSfd RRXFBumaW2SHdseZaWm6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"></path>
+                                        <svg className="eUuXwBkW5W4__eatjSfd RRXFBumaW2SHdseZaWm6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"></path>
                                         </svg>
                                     </div>
                                     <div className="fav">
                                         <span>3</span>
-                                        <svg class="eUuXwBkW5W4__eatjSfd RRXFBumaW2SHdseZaWm6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"></path>
+                                        <svg className="eUuXwBkW5W4__eatjSfd RRXFBumaW2SHdseZaWm6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                            <path stroke="currentColor" d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"></path>
                                         </svg>
                                     </div>
                                 </div>
@@ -90,10 +107,7 @@ export default function Header() {
                 </div>
             </div>
 
-            <div
-                ref={sidebarRef}
-                className={`offcanvas-menu-wrapper ${isMenuOpen ? 'active' : ''}`}
-            >
+            <div ref={sidebarRef} className={`offcanvas-menu-wrapper ${isMenuOpen ? 'active' : ''}`}>
                 <nav className="offcanvas__menu">
                     <ul>
                         <li><a href="./index.html">Home</a></li>
