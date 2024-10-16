@@ -9,6 +9,7 @@ import Trend_Spad from '../Trend_Spad/Trend_Spad';
 import RatingsReviews from '../Ratings_&_Reviews/Ratings_&_Reviews';
 import QNA from '../QNA/QNA';
 import RelatedProducts from '../RelatedProducts/RelatedProducts';
+import TopSellignList from '../../Components/Top-Selling-List/Top_Sellign_List.jsx'
 
 
 export default function Project_Details() {
@@ -178,7 +179,7 @@ export default function Project_Details() {
                         <div className="w-full md:w-1/3">
                             <div className="seller-top-products-box bg-white sidebar-box mx-3 p-4 mb-3">
                                 <h6>Top Selling Products From This Seller</h6>
-                                <Trend_Spad ImgName={motor3} ProductTitle={'Electric Motor 2/3/5 HP Standard IS...'} Price={`5, 499`} stars={2} />
+                                <TopSellignList />
                             </div>
                         </div>
                         <div className="w-full md:w-2/3">

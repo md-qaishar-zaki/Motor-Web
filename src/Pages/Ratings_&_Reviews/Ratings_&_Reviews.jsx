@@ -12,10 +12,7 @@ export default function RatingsReviews() {
                     </h3>
                 </div>
                 <div class="product-desc-tab bg-white">
-                    <div class="review-paragraph">
-                        <div class="text-center">
-                            There have been no reviews for this product yet.
-                        </div>
+                    <div class="review-paragraph"> 
                         <div class="leave-review">
                             <div class="section-title section-title--style-1">
                                 <h3 class="section-title-inner text-xl font-semibold uppercase">

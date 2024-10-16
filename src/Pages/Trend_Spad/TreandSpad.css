@@ -1,0 +1,10 @@
+.ImgHeight {
+    height: 155px;
+}
+
+.ContentHeight {
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
