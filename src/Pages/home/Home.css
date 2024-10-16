@@ -1,6 +1,7 @@
 .categories {
 	overflow: hidden;
 	margin-top: 10px;
+	height: 90vh;
 }
 
 .categories .container-fluid {
@@ -194,4 +195,24 @@
 	-webkit-transform: rotate(360deg);
 	-ms-transform: rotate(360deg);
 	transform: rotate(360deg);
+}
+
+.hideText {
+	background: #ffffff7a;
+	width: 100%;
+	position: absolute;
+	height: 100%;
+	bottom: -250px;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	backdrop-filter: blur(2px);
+	transition: 0.8s;
+}
+
+.categories__item:hover .hideText {
+	bottom: 0;
+	cursor: pointer;
 }

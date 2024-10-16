@@ -7,6 +7,7 @@ body {
     height: 100%;
     font-family: "Poppins";
     -webkit-font-smoothing: antialiased;
+    background-color: #d3f4eb;
 }
 
 h1,
@@ -130,11 +131,7 @@ ol {
 .text-white li,
 .text-white a {
     color: #fff;
-}
-
-body {
-    background: #fcf9f1;
-}
+} 
 
 .space-x-2> :not([hidden])~ :not([hidden]) {
     margin: 0 !important;

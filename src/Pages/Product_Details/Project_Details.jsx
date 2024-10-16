@@ -5,12 +5,10 @@ import motor1 from '../../Img/motor1.jpeg';
 import motor2 from '../../Img/motor2.jpeg';
 import motor3 from '../../Img/motor3.jpeg';
 import motor4 from '../../Img/motor4.jpeg';
-import Trend_Spad from '../Trend_Spad/Trend_Spad';
-import RatingsReviews from '../Ratings_&_Reviews/Ratings_&_Reviews';
-import QNA from '../QNA/QNA';
-import RelatedProducts from '../RelatedProducts/RelatedProducts';
+import RatingsReviews from '../../Components/Ratings_&_Reviews/Ratings_&_Reviews.jsx';
+import QNA from '../../Components/QNA/QNA.jsx';
+import RelatedProducts from '../../Components/RelatedProducts/RelatedProducts.jsx';
 import TopSellignList from '../../Components/Top-Selling-List/Top_Sellign_List.jsx'
-
 
 export default function Project_Details() {
     window.scrollTo(0, 0);
@@ -39,21 +37,21 @@ export default function Project_Details() {
 
     return (
         <div>
-            <section className="py-5">
-                <div className="container mx-auto px-4">
-                    <div className="flex flex-wrap -mx-4">
+            <section className="py-5 pt-0">
+                <div className="container mx-auto">
+                    <div className="flex flex-wrap ProductDetails py-5">
                         <aside className="w-full lg:w-1/2 px-4 mb-4 lg:mb-0">
-                            <div class="ProductIMG w-full h-auto rounded-lg shadow-md mb-4">
+                            <div className="ProductIMG w-full h-auto rounded-lg shadow-md mb-4">
                                 <img src={product.ImgName} alt={product.ProductTitle} />
                             </div>
-                            <div class="flex gap-4 py-4 justify-center overflow-x-auto ProductIMGList">
-                                <img src={product.ImgName} alt={product.ProductTitle} class="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-100 hover:opacity-100 transition duration-300"
+                            <div className="flex gap-4 py-4 justify-center overflow-x-auto ProductIMGList">
+                                <img src={product.ImgName} alt={product.ProductTitle} className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-100 hover:opacity-100 transition duration-300"
                                     onclick="changeImage(this.src)" />
-                                <img src={product.ImgName} alt={product.ProductTitle} class="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
+                                <img src={product.ImgName} alt={product.ProductTitle} className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
                                     onclick="changeImage(this.src)" />
-                                <img src={product.ImgName} alt={product.ProductTitle} class="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
+                                <img src={product.ImgName} alt={product.ProductTitle} className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
                                     onclick="changeImage(this.src)" />
-                                <img src={product.ImgName} alt={product.ProductTitle} class="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
+                                <img src={product.ImgName} alt={product.ProductTitle} className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
                                     onclick="changeImage(this.src)" />
                             </div>
                         </aside>
@@ -132,11 +130,11 @@ export default function Project_Details() {
                                 </div>
 
                                 <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
-                                    <a href="#" className="bg-yellow-500 text-white rounded-lg py-2 px-4 shadow-md">Buy now</a>
-                                    <a href="#" className="bg-blue-500 text-white rounded-lg py-2 px-4 shadow-md">
+                                    <a href="/" className="bg-yellow-500 text-white rounded-lg py-2 px-4 shadow-md">Buy now</a>
+                                    <a href="/" className="bg-blue-500 text-white rounded-lg py-2 px-4 shadow-md">
                                         <i className="fa fa-shopping-basket mr-1"></i>Add to cart
                                     </a>
-                                    <a href="#" className="bg-white border border-gray-300 text-gray-600 rounded-lg py-2 px-3 hover:bg-gray-100">
+                                    <a href="/" className="bg-white border border-gray-300 text-gray-600 rounded-lg py-2 px-3 hover:bg-gray-100">
                                         <i className="fa fa-heart mr-1"></i>Save
                                     </a>
                                 </div>
@@ -147,25 +145,25 @@ export default function Project_Details() {
                                     </div>
                                     <div className="w-5/6">
                                         <div id="share" className="flex space-x-3 mt-2">
-                                            <a target="_self" href="#">
+                                            <a target="_self" href="/">
                                                 <i className="fa fa-at"></i>
                                             </a>
-                                            <a target="_blank" href="#">
+                                            <a target="_blank" href="/">
                                                 <i className="fa fa-twitter"></i>
                                             </a>
-                                            <a target="_blank" href="#">
+                                            <a target="_blank" href="/">
                                                 <i className="fa fa-facebook"></i>
                                             </a>
-                                            <a target="_blank" href="#">
+                                            <a target="_blank" href="/">
                                                 <i className="fa fa-linkedin"></i>
                                             </a>
-                                            <a target="_blank" href="#">
+                                            <a target="_blank" href="/">
                                                 <i className="fa fa-pinterest"></i>
                                             </a>
-                                            <a target="_blank" href="#">
+                                            <a target="_blank" href="/">
                                                 <i className="fa fa-stumbleupon"></i>
                                             </a>
-                                            <a target="_self" href="#">
+                                            <a target="_self" href="/">
                                                 <i className="fa fa-whatsapp"></i>
                                             </a>
                                         </div>
@@ -175,16 +173,16 @@ export default function Project_Details() {
                             </div>
                         </main>
                     </div>
-                    <div className="flex flex-wrap product-desc-tab">
+                    <div className="flex mt-5 flex-wrap product-desc-tab">
                         <div className="w-full md:w-1/3">
-                            <div className="seller-top-products-box bg-white sidebar-box mx-3 p-4 mb-3">
-                                <h6>Top Selling Products From This Seller</h6>
+                            <div className=" rounded seller-top-products-box bg-white sidebar-box mx-3 p-4 mb-3">
+                                <h6 className='text-xm font-semibold'>Top Selling Products From This Seller</h6>
                                 <TopSellignList />
                             </div>
                         </div>
                         <div className="w-full md:w-2/3">
-                            <div className=" bg-white">
-                                <div className="tabs tabs--style-2">
+                            <div className=" bg-white rounded overflow-hidden ms-0 mx-3">
+                                <div className="tabs">
                                     <ul className="flex justify-center sticky p-3 border-b-2 bg-white">
                                         <li className="nav-item">
                                             <a href="#tab_default_1" className="nav-link text-uppercase font-semibold active show">Description</a>
@@ -227,7 +225,9 @@ export default function Project_Details() {
                                     </div>
                                 </div>
                             </div>
-                            <RatingsReviews />
+                            <div className="mt-3 mb-3 bg-white rounded overflow-hidden ms-0 mx-3">
+                                <RatingsReviews />
+                            </div>
                         </div>
                     </div>
                     <QNA />

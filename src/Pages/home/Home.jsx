@@ -5,7 +5,9 @@ import img2 from '../../Img/2.jpg'
 import img3 from '../../Img/3.jpg'
 import img4 from '../../Img/4.jpg'
 import img5 from '../../Img/5.jpg'
-import Products from '../Trend_Spad/Products/Products' 
+import img6 from '../../Img/6.jpg'
+import img7 from '../../Img/7.jpg'
+import Products from '../../Components/Products/Products.jsx' 
 
 
 export default function Home() {
@@ -33,7 +35,7 @@ export default function Home() {
                                 {/* Top Row - 2 Boxes */}
                                 <div className="w-1/2 p-1"> {/* Adjust width to 1/2 for two boxes on top */}
                                     <div
-                                        className="categories__item bg-cover bg-center"
+                                        className="categories__item bg-cover bg-center relative overflow-hidden"
                                         style={{ backgroundImage: `url(${img2})` }}
                                     >
                                         <div className="categories__text">
@@ -48,7 +50,7 @@ export default function Home() {
 
                                 <div className="w-1/2 p-1">
                                     <div
-                                        className="categories__item bg-cover bg-center"
+                                        className="categories__item bg-cover bg-center relative overflow-hidden"
                                         style={{ backgroundImage: `url(${img3})` }}
                                     >
                                         <div className="categories__text">
@@ -64,10 +66,10 @@ export default function Home() {
                                 {/* Bottom Row - 4 Boxes */}
                                 <div className="w-1/4 p-1"> {/* Adjust width to 1/4 for four boxes on bottom */}
                                     <div
-                                        className="categories__item bg-cover bg-center"
+                                        className="categories__item bg-cover bg-center relative overflow-hidden"
                                         style={{ backgroundImage: `url(${img4})` }}
                                     >
-                                        <div className="categories__text">
+                                        <div className="categories__text hideText">
                                             <h4 className="text-xl font-semibold mb-2">Industrial Motor</h4>
                                             <p className="mb-2">159 items</p>
                                             <a className="text-base font-semibold text-white bg-black py-2 px-4">
@@ -79,10 +81,10 @@ export default function Home() {
 
                                 <div className="w-1/4 p-1">
                                     <div
-                                        className="categories__item bg-cover bg-center"
+                                        className="categories__item bg-cover bg-center relative overflow-hidden"
                                         style={{ backgroundImage: `url(${img5})` }}
                                     >
-                                        <div className="categories__text">
+                                        <div className="categories__text hideText">
                                             <h4 className="text-xl font-semibold mb-2">Geared Motor</h4>
                                             <p className="mb-2">792 items</p>
                                             <a className="text-base font-semibold text-white bg-black py-2 px-4">
@@ -94,10 +96,10 @@ export default function Home() {
 
                                 <div className="w-1/4 p-1">
                                     <div
-                                        className="categories__item bg-cover bg-center"
-                                        style={{ backgroundImage: `url(${img2})` }}
+                                        className="categories__item bg-cover bg-center relative overflow-hidden"
+                                        style={{ backgroundImage: `url(${img6})` }}
                                     >
-                                        <div className="categories__text">
+                                        <div className="categories__text hideText">
                                             <h4 className="text-xl font-semibold mb-2">Men’s fashion</h4>
                                             <p className="mb-2">358 items</p>
                                             <a className="text-base font-semibold text-white bg-black py-2 px-4">
@@ -109,10 +111,10 @@ export default function Home() {
 
                                 <div className="w-1/4 p-1">
                                     <div
-                                        className="categories__item bg-cover bg-center"
-                                        style={{ backgroundImage: `url(${img2})` }}
+                                        className="categories__item bg-cover bg-center relative overflow-hidden"
+                                        style={{ backgroundImage: `url(${img7})` }}
                                     >
-                                        <div className="categories__text">
+                                        <div className="categories__text hideText">
                                             <h4 className="text-xl font-semibold mb-2">Men’s fashion</h4>
                                             <p className="mb-2">358 items</p>
                                             <a className="text-base font-semibold text-white bg-black py-2 px-4">

@@ -1,8 +1,11 @@
 /* Main Header Styles */
 .header {
-	background: #fff5dc;
-	-webkit-box-shadow: 0px 5px 10px rgba(91, 91, 91, 0.1);
+	background: #ffedc2c9;
 	box-shadow: 0px 5px 10px rgba(91, 91, 91, 0.1);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+	backdrop-filter: blur(20px);
 }
 
 .header__logo {
@@ -107,4 +110,28 @@
 	top: 10px;
 	right: 10px;
 	cursor: pointer;
+}
+
+.cart,
+.fav {
+	position: relative;
+	margin: 0px 5px;
+	cursor: pointer;
+}
+
+.cart span,
+.fav span {
+	width: 15px;
+	height: 15px;
+	background-color: red;
+	color: #fff;
+	border-radius: 50%;
+	display: block;
+	font-size: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	right: 0;
+	top: -8px;
 }
