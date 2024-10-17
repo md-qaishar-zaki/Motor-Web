@@ -9,6 +9,8 @@ import "slick-carousel/slick/slick-theme.css";
 export default function ProductSlider({ SectionTitle }) {
     const [categories, setCategories] = useState([]);
     const [productsByCategory, setProductsByCategory] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,12 +24,15 @@ export default function ProductSlider({ SectionTitle }) {
                 setCategories(data.categories);
             } catch (error) {
                 console.error('Error fetching categories:', error);
+                setError("Failed to load categories.");
+            } finally {
+                setLoading(false);
             }
         };
 
         fetchCategories();
     }, []);
- 
+
     useEffect(() => {
         const fetchProductsByCategoryId = async (id) => {
             try {
@@ -35,21 +40,26 @@ export default function ProductSlider({ SectionTitle }) {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                const data = await response.json();
-                console.log(`Products for category ID ${id}:`, data.products); 
-                setProductsByCategory(prevState => ({ ...prevState, [id]: data.products || [] }));
+                const data = await response.json(); 
+                setProductsByCategory(prevState => ({ ...prevState, [id]: data.product || [] }));
             } catch (error) {
                 console.error('Error fetching products:', error);
+                setError(`Failed to load products for category ID ${id}.`);
             }
         };
 
-        categories.forEach(category => {
-            fetchProductsByCategoryId(category.id);
-        });
+       
+        const fetchAllProducts = async () => {
+            await Promise.all(categories.map(category => fetchProductsByCategoryId(category.id)));
+        };
+
+        if (categories.length > 0) {
+            fetchAllProducts();
+        }
     }, [categories]);
 
-    const handleCategoryClick = (slug) => {
-        navigate(`/category/${slug}`);
+    const handleProductClick = (slug) => {
+        navigate(`product/${slug}`); 
     };
 
     const settings = {
@@ -85,6 +95,9 @@ export default function ProductSlider({ SectionTitle }) {
         ]
     };
 
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>{error}</div>;
+
     return (
         <>
             {categories.map((category) => (
@@ -97,16 +110,20 @@ export default function ProductSlider({ SectionTitle }) {
                             </div>
                         </div>
                         <Slider {...settings}>
-                            {productsByCategory[category.id]?.map((product) => (
-                                <div key={product.id} onClick={() => handleCategoryClick(product.slug)}>
-                                    <Trend_Spad
-                                        ProductTitle={product.title}
-                                        ImgName={product.photo ? `https://siyabling.com${product.photo}` : "https://via.placeholder.com/150"}
-                                        Price={product.Price}
-                                        stars={product.stars}
-                                    />
-                                </div>
-                            ))}
+                            {productsByCategory[category.id]?.length > 0 ? (
+                                productsByCategory[category.id].map((product) => (
+                                    <div key={`${category.id}-${product.id}`} onClick={() => handleProductClick(product.id)}>
+                                        <Trend_Spad
+                                            ProductTitle={product.title}
+                                            ImgName={product.photo ? `https://siyabling.com${product.photo}` : "https://via.placeholder.com/150"}
+                                            Price={product.price}
+                                            stars={product.rating}
+                                        />
+                                    </div>
+                                ))
+                            ) : (
+                                <div>No products available</div>
+                            )}
                         </Slider>
                     </div>
                 </div>
