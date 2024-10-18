@@ -74,7 +74,7 @@
 }
 
 .InputSearch {
-	width: 370px;
+	width: 500px;
     height: 40px;
     border-radius: 50px;
     background: #ffffffc4;
@@ -102,6 +102,7 @@
 	font-weight: 500;
 	font-size: 14px;
 	color: #547d72;
+	width: 70%;
 }
 
 .InputSearch {

@@ -41,8 +41,8 @@ export default function Header() {
     return (
         <header className="header px-9">
             <div className="container-fluid">
-                <div className="row flex flex-wrap justify-between">
-                    <div className="w-3/10 lg:w-3/10 flex items-center">
+                <div className="flex">
+                    <div className="w-1/3 lg:w-3/10 flex items-center ">
                         <div className="canvas__open" onClick={toggleMenu}>
                             <i className="fa fa-bars"></i>
                         </div>
@@ -53,7 +53,7 @@ export default function Header() {
                             </a>
                         </div>
                     </div>
-                    <div className="w-7/10 lg:w-7/10 flex justify-around items-center">
+                    <div className="w-2/3 lg:w-7/10 flex justify-between items-center">
                         <div className="InputSearch">
                             <input type="text" name="" id="" placeholder="Search Products" />
                             <select name="All Categories" id="All Categories">
@@ -70,8 +70,8 @@ export default function Header() {
                         </div>
                         <div className="header__right flex space-x-4 items-center">
                             <div className="flex header__right__auth space-x-3 text-sm font-medium">
-                                <a href="/">Login</a>
-                                <a href="/">Register</a>
+                                {/* <a href="/">Login</a>
+                                <a href="/">Register</a> */}
                                 <div className="flex">
                                     <div className="cart">
                                         <span>2</span>

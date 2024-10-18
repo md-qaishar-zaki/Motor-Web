@@ -44,29 +44,27 @@ export default function Project_Details() {
                     <div className="flex flex-wrap ProductDetails py-5">
                         <aside className="w-full lg:w-1/2 px-4 mb-4 lg:mb-0">
                             <div className="ProductIMG w-full h-auto rounded-lg shadow-md mb-4">
-                                <img id="mainImage" src={product.ImgName} alt={product.ProductTitle} />
+                                {/* Main Image */}
+                                <img id="mainImage" src={product.product.photoproduct?.[0]?.photo_path} alt={product.product.title} />
                             </div>
+
+                            {/* Repeating the same image below */}
                             <div className="flex gap-4 py-4 justify-center overflow-x-auto ProductIMGList">
-                                {product.ImageList && product.ImageList.length > 0 ? (
-                                    product.ImageList.map((imgSrc, index) => (
-                                        <img
-                                            key={index}
-                                            src={imgSrc}
-                                            alt={product.ProductTitle}
-                                            className="size-16 sm:size-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
-                                            onClick={() => changeImage(imgSrc)}
-                                        />
-                                    ))
-                                ) : (
-                                    <div>No images available</div> // Optional: Handle the case when there are no images
-                                )}
+                                {[...Array(4)].map((_, index) => (  // Repeat the image 5 times (you can change the number)
+                                    <img
+                                        key={index}
+                                        src={product.product.photoproduct?.[0]?.photo_path}  // Same image path
+                                        alt={product.product.title}
+                                        className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-md cursor-pointer opacity-60 hover:opacity-100 transition duration-300"
+                                        onClick={() => changeImage(product.product.photoproduct?.[0]?.photo_path)}  // Clicking changes the main image
+                                    />
+                                ))}
                             </div>
                         </aside>
                         <main className="w-full lg:w-1/2 px-4">
                             <div>
                                 <h4 className="text-2xl font-semibold text-gray-800 mb-3">
-                                    {product.product.title}
-                                    {console.log(product)}
+                                    {product.product.title} 
                                 </h4>
                                 <div className="flex items-center space-x-3 mb-3">
                                     <div className="flex items-center stars">
@@ -167,7 +165,7 @@ export default function Project_Details() {
                                                         <p><b><span className="text-sm">{product.product.description}</span></b></p>
                                                         <p><b><span className="text-sm">{product.product.meta_title}:</span></b></p>
                                                         <ul className="list-disc pl-5">
-                                                            <li><span className="text-sm">{product.product.meta_description}</span></li> 
+                                                            <li><span className="text-sm">{product.product.meta_description}</span></li>
                                                         </ul>
                                                         <p><b><span className="text-sm">Features:</span></b></p>
                                                         <ul className="list-disc pl-5">

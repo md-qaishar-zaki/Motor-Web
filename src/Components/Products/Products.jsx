@@ -40,7 +40,7 @@ export default function ProductSlider({ SectionTitle }) {
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                const data = await response.json(); 
+                const data = await response.json();
                 setProductsByCategory(prevState => ({ ...prevState, [id]: data.product || [] }));
             } catch (error) {
                 console.error('Error fetching products:', error);
@@ -48,7 +48,7 @@ export default function ProductSlider({ SectionTitle }) {
             }
         };
 
-       
+
         const fetchAllProducts = async () => {
             await Promise.all(categories.map(category => fetchProductsByCategoryId(category.id)));
         };
@@ -59,7 +59,7 @@ export default function ProductSlider({ SectionTitle }) {
     }, [categories]);
 
     const handleProductClick = (slug) => {
-        navigate(`product/${slug}`); 
+        navigate(`product/${slug}`);
     };
 
     const settings = {
@@ -95,6 +95,8 @@ export default function ProductSlider({ SectionTitle }) {
         ]
     };
 
+    Array(5).fill().forEach(() => settings);
+
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
 
@@ -113,9 +115,10 @@ export default function ProductSlider({ SectionTitle }) {
                             {productsByCategory[category.id]?.length > 0 ? (
                                 productsByCategory[category.id].map((product) => (
                                     <div key={`${category.id}-${product.id}`} onClick={() => handleProductClick(product.id)}>
+
                                         <Trend_Spad
                                             ProductTitle={product.title}
-                                            ImgName={product.photo ? `https://siyabling.com${product.photo}` : "https://via.placeholder.com/150"}
+                                            ImgName={product.photoproduct?.[0].photo_path}
                                             Price={product.price}
                                             stars={product.rating}
                                         />
