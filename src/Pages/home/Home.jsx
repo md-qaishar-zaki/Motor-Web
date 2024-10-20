@@ -63,14 +63,11 @@ export default function Home() {
                         <div className="w-full lg:w-1/2">
                             <div className="flex flex-wrap">
                                 {categoryImg.map((category, index) => (
-                                    <div key={index} className={`w-${index === 0 || index === 1 ? '1/2' : '1/4'} p-1`}>
+                                    <div key={index} className={`w-${index === 0 || index === 1 ? '1/2' : '1/4'} p-1`}> 
                                         <div
                                             className="categories__item bg-cover bg-center relative overflow-hidden"
                                             style={{
-                                                backgroundImage: `url(${category.products && category.products.length > 0 && category.products[0].photoproduct && category.products[0].photoproduct.length > 0
-                                                        ? getFullImageUrl(category.products[0].photoproduct[0].photo_path)
-                                                        : 'https://via.placeholder.com/150' // Default placeholder image
-                                                    })`
+                                                backgroundImage: `url(${category.photo})`
                                             }}
                                         >
                                             <div className={`categories__text ${index >= categoryImg.length - 4 ? 'hideText' : ''}`}>
