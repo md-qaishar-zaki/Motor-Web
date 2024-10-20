@@ -216,3 +216,43 @@
 	bottom: 0;
 	cursor: pointer;
 }
+
+.slider {
+	display: flex;
+	align-items: center;
+}
+
+.slider-container {
+	display: flex;
+	overflow: hidden;
+	flex: 1;
+}
+
+.slider-item {
+	width: 243px; 
+	margin: 0px;
+	transition: transform 0.5s ease;
+}
+
+.slider-button {
+	background-color: #007bff;
+	color: white;
+	border: none;
+	padding: 4px;
+	cursor: pointer;
+	position: absolute;
+	right: 13px;
+	font-size: 12px;
+	border-radius: 5px;
+	font-weight: 700;
+	z-index: 3;
+}
+
+.Prev {
+	left: 13px !important;
+	right: unset !important;
+}
+
+.slider-button:hover {
+	background-color: #0056b3;
+}

@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Slider from "react-slick";
+import React, { useEffect, useState } from "react"; 
 import { useNavigate } from "react-router-dom";
 import Button from "../Button.jsx";
-import Trend_Spad from "../Trend_Spad/Trend_Spad.jsx";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Trend_Spad from "../Trend_Spad/Trend_Spad.jsx"; 
 
-export default function ProductSlider({ SectionTitle }) {
+export default function ProductSlider() {
     const [categories, setCategories] = useState([]);
-    const [productsByCategory, setProductsByCategory] = useState({});
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -21,116 +15,84 @@ export default function ProductSlider({ SectionTitle }) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                setCategories(data.categories);
+                setCategories(data.categories || []); // Ensure it's an array in case of empty data
             } catch (error) {
                 console.error('Error fetching categories:', error);
-                setError("Failed to load categories.");
-            } finally {
-                setLoading(false);
             }
         };
 
         fetchCategories();
     }, []);
 
-    useEffect(() => {
-        const fetchProductsByCategoryId = async (id) => {
-            try {
-                const response = await fetch(`/machintools/public/api/getproductbycategoryid/${id}`);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-                setProductsByCategory(prevState => ({ ...prevState, [id]: data.product || [] }));
-            } catch (error) {
-                console.error('Error fetching products:', error);
-                setError(`Failed to load products for category ID ${id}.`);
-            }
-        };
-
-
-        const fetchAllProducts = async () => {
-            await Promise.all(categories.map(category => fetchProductsByCategoryId(category.id)));
-        };
-
-        if (categories.length > 0) {
-            fetchAllProducts();
-        }
-    }, [categories]);
-
     const handleProductClick = (slug) => {
         navigate(`product/${slug}`);
     };
 
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
+    // State for current index of each category
+    const [currentIndices, setCurrentIndices] = useState({});
+
+    const handleNextSlide = (categoryId) => {
+        setCurrentIndices((prevIndices) => {
+            const currentIndex = prevIndices[categoryId] || 0;
+            const nextIndex = (currentIndex + 1) % categories.find(cat => cat.id === categoryId).products.length; // Loop back
+            return {
+                ...prevIndices,
+                [categoryId]: nextIndex,
+            };
+        });
     };
 
-    Array(5).fill().forEach(() => settings);
-
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
+    const handlePrevSlide = (categoryId) => {
+        setCurrentIndices((prevIndices) => {
+            const currentIndex = prevIndices[categoryId] || 0;
+            const prevIndex = (currentIndex - 1 + categories.find(cat => cat.id === categoryId).products.length) % categories.find(cat => cat.id === categoryId).products.length; // Loop back
+            return {
+                ...prevIndices,
+                [categoryId]: prevIndex,
+            };
+        });
+    };
 
     return (
         <>
-            {categories.map((category) => (
-                <div key={category.id}>
-                    <div className="container mx-auto productSlider">
+            {categories.map((category) => {
+                const currentIndex = currentIndices[category.id] || 0;
+                const itemsToShow = 5; // Number of products to show
+                const startIndex = currentIndex;
+                const endIndex = startIndex + itemsToShow;
+                const visibleProducts = category.products.slice(startIndex, endIndex).concat(category.products.slice(0, Math.max(0, endIndex - category.products.length))); // Repeat products if needed
+
+                if (!category.products || category.products.length === 0) {
+                    return <div key={category.id}>No products available.</div>;
+                }
+
+                return (
+                    <div key={category.id} className="container mx-auto productSlider">
                         <div className="trend__content">
                             <div className="section-title">
                                 <h4 className="text-xl font-bold">{category.title}</h4>
                                 <Button Name={"View More"} />
                             </div>
                         </div>
-                        <Slider {...settings}>
-                            {productsByCategory[category.id]?.length > 0 ? (
-                                productsByCategory[category.id].map((product) => (
-                                    <div key={`${category.id}-${product.id}`} onClick={() => handleProductClick(product.id)}>
-
+                        <div className="slider">
+                            <button onClick={() => handlePrevSlide(category.id)} className="slider-button Prev">Prev</button>
+                            <div className="slider-container">
+                                {visibleProducts.map((product) => (
+                                    <div key={product.id} onClick={() => handleProductClick(product.id)} className="slider-item">
                                         <Trend_Spad
                                             ProductTitle={product.title}
-                                            ImgName={product.photoproduct?.[0].photo_path}
+                                            ImgName={product.photoproduct && product.photoproduct.length > 0 ? product.photoproduct[0].photo_path : 'DEFAULT_IMAGE'}
                                             Price={product.price}
                                             stars={product.rating}
                                         />
                                     </div>
-                                ))
-                            ) : (
-                                <div>No products available</div>
-                            )}
-                        </Slider>
+                                ))}
+                            </div>
+                            <button onClick={() => handleNextSlide(category.id)} className="slider-button">Next</button>
+                        </div>
                     </div>
-                </div>
-            ))}
+                );
+            })}
         </>
     );
 }
