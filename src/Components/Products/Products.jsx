@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"; 
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../Button.jsx";
-import Trend_Spad from "../Trend_Spad/Trend_Spad.jsx"; 
+import Trend_Spad from "../Trend_Spad/Trend_Spad.jsx";
 
 export default function ProductSlider() {
     const [categories, setCategories] = useState([]);
@@ -63,7 +63,7 @@ export default function ProductSlider() {
                 const visibleProducts = category.products.slice(startIndex, endIndex).concat(category.products.slice(0, Math.max(0, endIndex - category.products.length))); // Repeat products if needed
 
                 if (!category.products || category.products.length === 0) {
-                    return <div key={category.id}>No products available.</div>;
+                    return <div key={category.id}></div>;
                 }
 
                 return (
@@ -71,11 +71,10 @@ export default function ProductSlider() {
                         <div className="trend__content">
                             <div className="section-title">
                                 <h4 className="text-xl font-bold">{category.title}</h4>
-                                <Button Name={"View More"} />
                             </div>
                         </div>
                         <div className="slider">
-                            <button onClick={() => handlePrevSlide(category.id)} className="slider-button Prev">Prev</button>
+                            {/* <button onClick={() => handlePrevSlide(category.id)} className="slider-button Prev">Prev</button> */}
                             <div className="slider-container">
                                 {visibleProducts.map((product) => (
                                     <div key={product.id} onClick={() => handleProductClick(product.id)} className="slider-item">
@@ -88,7 +87,10 @@ export default function ProductSlider() {
                                     </div>
                                 ))}
                             </div>
-                            <button onClick={() => handleNextSlide(category.id)} className="slider-button">Next</button>
+                            {/* <button onClick={() => handleNextSlide(category.id)} className="slider-button">Next</button> */}
+                        </div>
+                        <div className="flex justify-center mt-4">
+                            <Button Name={"View More"} />
                         </div>
                     </div>
                 );
